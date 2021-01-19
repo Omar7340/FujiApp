@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'fujiBabel/css/reader.css' %}">
+</head>
+
+<body>
+    <input type="checkbox" id="ls-setting" class="checkDiv">
+    <div class="lel_settings">
+        <div class="ls-box">
+            <h2>Paramètre</h2>
+
+            <div class="ls-main">
+                <h3>Mode de lecture</h3>
+                <div class="_1nXj6" id="directionLecture">
+                    <div data-direction="true" class="ls-mode lsm-active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <g fill="none" fill-rule="evenodd">
+                                <path stroke="#E6681B" stroke-width="2"
+                                    d="M14.143 19.059v8.412c0 .917-.796 1.529-1.592 1.529h-7.96C3.797 29 3 28.388 3 27.47V4.53C3 3.611 3.796 3 4.592 3h7.959c.796 0 1.592.612 1.592 1.53v8.411M17.857 19.059v8.412c0 .917.796 1.529 1.592 1.529h7.96c.795 0 1.591-.612 1.591-1.53V4.53C29 3.611 28.204 3 27.408 3H19.45c-.796 0-1.592.612-1.592 1.53v8.411">
+                                </path>
+                                <path stroke="#E6681B" stroke-width="1.5" d="M9.5 16h13.929"></path>
+                                <path fill="#E6681B" d="M26.643 15.95L22 19.2v-6.5zM5.6 15.95l4.643 3.25v-6.5z"></path>
+                            </g>
+                        </svg>
+
+                        <div class="_10YNG">Horizontal</div>
+                    </div>
+
+                    <div data-direction="false" class="ls-mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <g fill="none" fill-rule="evenodd">
+                                <path stroke="#bdbdbd" stroke-width="2"
+                                    d="M12.941 13.706H4.53c-.917 0-1.529-.765-1.529-1.53V4.53C3 3.765 3.612 3 4.53 3h22.94c.918 0 1.53.765 1.53 1.53v7.646c0 .765-.612 1.53-1.53 1.53H19.06M12.941 18.294H4.53c-.917 0-1.529.765-1.529 1.53v7.647C3 28.235 3.612 29 4.53 29h22.94c.918 0 1.53-.765 1.53-1.53v-7.646c0-.765-.612-1.53-1.53-1.53H19.06">
+                                </path>
+                                <path stroke="#bdbdbd" stroke-width="1.5" d="M16 9.118v13.764"></path>
+                                <path fill="#bdbdbd" d="M15.941 25.588L12.882 21H19zM15.941 6.5l-3.059 4.588H19z">
+                                </path>
+                            </g>
+                        </svg>
+
+                        <div class="_10YNG">Vertical</div>
+                    </div>
+                </div>
+                <h3>Sens de lecture</h3>
+                <div class="_1nXj6" id="sensLecture">
+                    <div data-sens="true" class="ls-mode lsm-active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <g fill="none" fill-rule="evenodd">
+                                <path stroke="#E6681B" stroke-width="1.5" d="M6 16h22.941"></path>
+                                <path stroke="#E6681B" stroke-width="2"
+                                    d="M8 19v8.412c0 .917.765 1.53 1.53 1.53h13.764c.765 0 1.53-.613 1.53-1.53V19M24.824 12.941V4.53c0-.917-.765-1.529-1.53-1.529H9.53C8.765 3 8 3.612 8 4.53v8.411">
+                                </path>
+                                <path fill="#E6681B" d="M31.588 16.059L27 19.118V13z"></path>
+                            </g>
+                        </svg>
+
+                        <div class="_10YNG">Gauche à droite</div>
+                    </div>
+
+                    <div data-sens="false" class="ls-mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <g fill="none" fill-rule="evenodd">
+                                <path stroke="#bdbdbd" stroke-width="1.5" d="M26 16H3.059"></path>
+                                <path stroke="#bdbdbd" stroke-width="2"
+                                    d="M24 13V4.588c0-.917-.765-1.53-1.53-1.53H8.707c-.765 0-1.53.613-1.53 1.53V13M7.176 19.059v8.412c0 .917.765 1.529 1.53 1.529H22.47c.764 0 1.529-.612 1.529-1.53V19.06">
+                                </path>
+                                <path fill="#bdbdbd" d="M.412 15.941L5 12.882V19z"></path>
+                            </g>
+                        </svg>
+
+                        <div class="_10YNG">Droite à gauche</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ls-confirm">
+                <label for="ls-setting">Annuler</label>
+                <label for="ls-setting" class="ls-cc">Confirmer</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-lel" id="topLEL">
+        <div class="tl-left">
+            <div>
+                <a href="{% url 'babel:detail' chapter.manga_id %}" class="tl-titre">{{chapter.manga_name}}</a>
+                <div for="selectCh" class="tl-chap">
+                    <select autocomplete="off" id="selectCh">
+                        {% for i in chapter.index %}
+                        <option value="{% url 'babel:read' chapter.manga_id i %}">Chapitre {{ forloop.counter }}</option>
+                        {% endfor %}
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="tl-right">
+            <div class="tll-l">
+                <label for="ls-download" class="tl-dl"><svg height="16" viewBox="0 0 1792 1792" width="16"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1344 1344q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h465l135 136q58 56 136 56t136-56l136-136h464q40 0 68 28t28 68zm-325-569q17 41-14 70l-448 448q-18 19-45 19t-45-19l-448-448q-31-29-14-70 17-39 59-39h256v-448q0-26 19-45t45-19h256q26 0 45 19t19 45v448h256q42 0 59 39z" />
+                    </svg><span class="merci-txt">Télécharger</span></label>
+
+                <label class="ls-setting" for="ls-setting"><svg height="20px" version="1.1" viewBox="0 0 20 20"
+                        width="20px" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title />
+                        <desc />
+                        <defs />
+                        <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+                            <g fill="#FFF" id="Core" transform="translate(-464.000000, -380.000000)">
+                                <g id="settings" transform="translate(464.000000, 380.000000)">
+                                    <path
+                                        d="M17.4,11 C17.4,10.7 17.5,10.4 17.5,10 C17.5,9.6 17.5,9.3 17.4,9 L19.5,7.3 C19.7,7.1 19.7,6.9 19.6,6.7 L17.6,3.2 C17.5,3.1 17.3,3 17,3.1 L14.5,4.1 C14,3.7 13.4,3.4 12.8,3.1 L12.4,0.5 C12.5,0.2 12.2,0 12,0 L8,0 C7.8,0 7.5,0.2 7.5,0.4 L7.1,3.1 C6.5,3.3 6,3.7 5.4,4.1 L3,3.1 C2.7,3 2.5,3.1 2.3,3.3 L0.3,6.8 C0.2,6.9 0.3,7.2 0.5,7.4 L2.6,9 C2.6,9.3 2.5,9.6 2.5,10 C2.5,10.4 2.5,10.7 2.6,11 L0.5,12.7 C0.3,12.9 0.3,13.1 0.4,13.3 L2.4,16.8 C2.5,16.9 2.7,17 3,16.9 L5.5,15.9 C6,16.3 6.6,16.6 7.2,16.9 L7.6,19.5 C7.6,19.7 7.8,19.9 8.1,19.9 L12.1,19.9 C12.3,19.9 12.6,19.7 12.6,19.5 L13,16.9 C13.6,16.6 14.2,16.3 14.7,15.9 L17.2,16.9 C17.4,17 17.7,16.9 17.8,16.7 L19.8,13.2 C19.9,13 19.9,12.7 19.7,12.6 L17.4,11 L17.4,11 Z M10,13.5 C8.1,13.5 6.5,11.9 6.5,10 C6.5,8.1 8.1,6.5 10,6.5 C11.9,6.5 13.5,8.1 13.5,10 C13.5,11.9 11.9,13.5 10,13.5 L10,13.5 Z"
+                                        id="Shape" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg></label>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ chapter.prev }}">
+        <div class="lel_prevpage">
+            <span id="prvPg" class="sc-nxttxt">Precedent</span>
+            <svg enable-background="new 0 0 15 26" height="26px" id="Layer_1" version="1.1" viewBox="0 0 15 26" width="15px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <polygon fill="#FFF"
+                    points="12.885,0.58 14.969,2.664 4.133,13.5 14.969,24.336 12.885,26.42 2.049,15.584 -0.035,13.5 " />
+            </svg>
+        </div>
+    </a>
+
+    <a href="{{ chapter.next }}">
+        <div class="lel_nextpage">
+            <span id="nxtPg" class="sc-nxttxt">Suivant</span>
+            <svg enable-background="new 0 0 15 26" height="26px" id="Layer_1" version="1.1" viewBox="0 0 15 26" width="15px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <polygon fill="#FFF"
+                    points="12.885,0.58 14.969,2.664 4.133,13.5 14.969,24.336 12.885,26.42 2.049,15.584 -0.035,13.5 " />
+            </svg>
+        </div>
+    </a>
+
+    <div class="main">
+        <div class="main_img">
+            {% for url in chapter.pages %}
+            <div class="image"><img src="{{ url }}" alt=""></div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <!-- <div class="lel_slctchap">
+        <select autocomplete="off" id="selectPg">
+            <option selected value="0">Page 1/22</option>
+            <option value="1">Page 2/22</option>
+            <option value="2">Page 3/22</option>
+            <option value="3">Page 4/22</option>
+            <option value="4">Page 5/22</option>
+            <option value="5">Page 6/22</option>
+            <option value="6">Page 7/22</option>
+            <option value="7">Page 8/22</option>
+            <option value="8">Page 9/22</option>
+            <option value="9">Page 10/22</option>
+            <option value="10">Page 11/22</option>
+            <option value="11">Page 12/22</option>
+            <option value="12">Page 13/22</option>
+            <option value="13">Page 14/22</option>
+            <option value="14">Page 15/22</option>
+            <option value="15">Page 16/22</option>
+            <option value="16">Page 17/22</option>
+            <option value="17">Page 18/22</option>
+            <option value="18">Page 19/22</option>
+            <option value="19">Page 20/22</option>
+            <option value="20">Page 21/22</option>
+            <option value="21">Page 22/22</option>
+        </select>
+    </div> -->
+</body>
+
+</html>

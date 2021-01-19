@@ -1,0 +1,53 @@
+https://gs-nation.com/LGsNation/public/getMangaByTeam
+
+
+https://gs-nation.com/LGsNation/public/GetScanByDay
+var content = {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({'date': 'today'})  
+          }; 
+
+
+https://gs-nation.com/LGsNation/public/GetNextDay
+var content = {
+             headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json'
+             },
+             method: "POST",
+             body: JSON.stringify({'date': 'today'})  
+           }; 
+
+
+https://gs-nation.com/LGsNation/public/getMangaById
+var content = {
+         headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         },
+         method: "POST",
+         body: JSON.stringify({id: id})  
+
+https://gs-nation.com/LGsNation/public/GetScanByNameManga
+var content = {
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({NameManga: str[0], chapter: str[1]})  
+            }; 
+
+https://gs-nation.com/LGsNation/public/GetScan
+var content = {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({chapter: chapter, manga_id: id})  
+        }; 

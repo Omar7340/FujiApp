@@ -1,0 +1,86 @@
+body{
+    background-color: rgb(28, 30, 31);
+    color: #ffffff;
+    font-size: x-large;
+}
+
+#content
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#header
+{
+    display: flex;
+    flex-direction: row;
+    max-height: 300px;
+    background-color: rgb(20, 72, 53);
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#info-text
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 2;
+    padding: 1em;
+}
+
+#name
+{
+    text-align: center;
+}
+
+#info
+{
+    flex: 1;
+}
+
+
+#synopsis
+{
+    flex: 2;
+}
+
+#image
+{
+    flex: 1;
+}
+
+#image img
+{
+    width: auto;
+    height: 100%;
+}
+
+#chapters
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#chapters a
+{
+    text-decoration: unset;
+    color: unset;
+}
+
+.chapter
+{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    border: inset 1px white;
+    border-radius: 5px;
+}
+
+.chapter .title
+{
+    /* margin: auto; */
+}
