@@ -26,7 +26,7 @@ SECRET_KEY = 'ilp36#uya6z1n@so7gek7xtg(zls^=(d4(pp65r%qv!56797w2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'stark-wildwood-31110.herokuapp.com' ]
 
 
 # Application definition
