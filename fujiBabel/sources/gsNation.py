@@ -26,8 +26,8 @@ def get_chapter(mangas_id, chapter_id):
 
     data['pages'] = []
 
-    min = int(data['MinScan'])
-    max = int(data['CountScan'])
+    min = 0
+    max = int(data['total_chapter'])
 
     for page in range(min,max+1):
         url = data['patch_scan'] + "{}.jpg".format(page)
