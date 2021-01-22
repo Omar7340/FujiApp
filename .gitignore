@@ -1,3 +1,2 @@
-FujiApp/__pycache__
-fujiBabel/__pycache__
-fujiBabel/sources/__pycache__
+FujiApp/__pycache__/*
+fujiBabel/__pycache__/*
