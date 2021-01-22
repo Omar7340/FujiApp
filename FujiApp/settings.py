@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = [ 'stark-wildwood-31110.herokuapp.com', '127.0.0.1']
 
+# TAILWIND
+TAILWIND_APP_NAME = 'theme'
+NPM_BIN_PATH = 'D:/Utilitaires/Dev/NodeJS/npm.cmd'
+
 
 # Application definition
 
@@ -39,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tailwind',
+    'theme',
 ]
 
 MIDDLEWARE = [
