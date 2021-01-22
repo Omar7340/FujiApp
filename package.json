@@ -1,0 +1,27 @@
+{
+    "name": "fujiapp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "autoprefixer": "^10.2.3",
+        "tailwindcss": "^2.0.2"
+    },
+    "engines": {
+        "node": "15.x"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "build": "tailwindcss build frontend/site.css -c frontend/tailwind.config.js -o static/site.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OOmar-pro/FujiApp.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/OOmar-pro/FujiApp/issues"
+    },
+    "homepage": "https://github.com/OOmar-pro/FujiApp#readme"
+}
