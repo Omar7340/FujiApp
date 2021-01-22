@@ -13,7 +13,7 @@ def index(request):
     for mangas in bibliotheque:
         mangas['url'] = reverse("babel:detail", args=[mangas['id']])
 
-    return render(request, "fujiBabel/index.html", { 'title': title, 'bibliotheque':bibliotheque})
+    return render(request, "index.html", { 'title': title, 'bibliotheque':bibliotheque})
 
 def detail(request, id):
     mangas = gsNation.get_manga_by_id(id)
