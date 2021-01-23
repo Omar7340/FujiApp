@@ -56,8 +56,8 @@ def read(request, mangas_id, chapter_id):
         chapter['prev'] = reverse("babel:read", args=[mangas_id, chapter_id-1])
     
     chapter['index'] = []
-    for i in range(max_chap):
-        chapter['index'].append(i)
+    for i in range(1,max_chap):
+        chapter['index'].append(str(i))
 
     menu = get_menu()
     return render(request, "reader.html", { 'title': title, 'chapter': chapter, 'menu':menu})
