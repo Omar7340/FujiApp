@@ -1,6 +1,7 @@
 {
     "scripts": {
         "heroku-prebuild": "cd theme/static_src && npm install && npm run build",
-        "start": "cd theme/static_src && npm start"
+        "start": "cd theme/static_src && npm start",
+        "rimraf": "./node_modules/rimraf/bin.js"
     }
 }
