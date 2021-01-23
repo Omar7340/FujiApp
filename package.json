@@ -1,7 +1,17 @@
 {
     "scripts": {
-        "heroku-prebuild": "cd theme/static_src && export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install && npm run build",
-        "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;",
-        "start": "cd theme/static_src && npm start"
+        "heroku-prebuild": "cd theme/static_src && npm install && npm run build",
+        "start": "cd theme/static_src && npm start",
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.0.2",
+        "clean-css-cli": "^4.3.0",
+        "node-sass": "^5.0.0",
+        "postcss": "^8.1.9",
+        "postcss-cli": "^8.3.0",
+        "postcss-scss": "^3.0.4",
+        "rimraf": "^3.0.2",
+        "tailwindcss": "^2.0.1",
+        "watch": "^1.0.2"
     }
 }
