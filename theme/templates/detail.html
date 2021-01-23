@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex flex-wrap -mx-2 my-2 overflow-hidden md:-mx-1 lg:-mx-1 xl:-mx-2">
+    <div class="flex flex-col sm:flex-row text-gray-300 bg-gray-800 p-5 rounded">
+        <div class="flex flex-shrink-0 w-2/6"><img src="{{ mangas.imagepatch }}" alt=""></div>
+        <div class="flex flex-col mx-4">
+            <div class="my-3">
+                <div id="name">{{ mangas.name }}</div>
+                <div class="text-sm text-gray-400">{{ mangas.Team }}</div>
+            </div>
+            <div id="synopsis">{{ mangas.description }}</div>
+        </div>
+    </div>
+    <div class="flex flex-col text-gray-200 mx-auto my-1 rounded bg-gray-800 w-11/12">
+        {% for chapter in mangas.scans %}
+            <div class=" border-b-2 border-gray-300">
+                <a href="{{ chapter.url }}">
+                    <div class="flex flex-row justify-between px-5 py-2">
+                        <span class="flex-2 text-center">Chapitre {{ chapter.chapter }}</span>
+                            <!-- <span class="name">{{ chapter.Chapter_message }}</span> -->
+                        <div class="date">{{ chapter.updated_at }}</div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

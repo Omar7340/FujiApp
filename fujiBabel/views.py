@@ -7,7 +7,7 @@ from .sources import gsNation
 # Create your views here.
 title = "Babel"
 
-def get_menu(active="index"):
+def get_menu(active=None):
     menu = {
         "index":{
             "name": "Mangas",
@@ -18,7 +18,8 @@ def get_menu(active="index"):
             "url": reverse("babel:latest")
         }}
 
-    menu[active]['active'] = True
+    if active:
+        menu[active]['active'] = True
     return menu
 
 
@@ -39,7 +40,9 @@ def detail(request, id):
     mangas = gsNation.get_manga_by_id(id)
     for chapter in mangas['scans']:
         chapter['url'] = reverse("babel:read", args=[id,chapter['chapter']])
-    return render(request, "fujiBabel/detail.html", { 'title': title, 'mangas':mangas})
+
+    menu = get_menu()
+    return render(request, "detail.html", { 'title': title, 'mangas':mangas, 'menu': menu})
 
 def read(request, mangas_id, chapter_id):
     chapter = gsNation.get_chapter(mangas_id, chapter_id)
@@ -56,5 +59,5 @@ def read(request, mangas_id, chapter_id):
     for i in range(max_chap):
         chapter['index'].append(i)
 
-
-    return render(request, "fujiBabel/reader.html", { 'title': title, 'chapter': chapter})
+    menu = get_menu()
+    return render(request, "reader.html", { 'title': title, 'chapter': chapter, 'menu':menu})
