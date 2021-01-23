@@ -9,7 +9,7 @@ module.exports = {
         // your project structure or change it to match.
         // '../../templates/**/*.html',
     ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
         extend: {},
     },

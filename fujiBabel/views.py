@@ -7,13 +7,33 @@ from .sources import gsNation
 # Create your views here.
 title = "Babel"
 
+def get_menu(active="index"):
+    menu = {
+        "index":{
+            "name": "Mangas",
+            "url": reverse("babel:index")
+        },
+        "latest":{
+            "name": "Nouvelle sorties",
+            "url": reverse("babel:latest")
+        }}
+
+    menu[active]['active'] = True
+    return menu
+
+
 def index(request):
     bibliotheque = gsNation.get_list()
 
     for mangas in bibliotheque:
         mangas['url'] = reverse("babel:detail", args=[mangas['id']])
 
-    return render(request, "index.html", { 'title': title, 'bibliotheque':bibliotheque})
+    menu = get_menu("index")
+    
+    return render(request, "index.html", { 'title': title, 'bibliotheque':bibliotheque, 'menu':menu })
+
+def latest(request):
+    return HttpResponse("not yet")
 
 def detail(request, id):
     mangas = gsNation.get_manga_by_id(id)
