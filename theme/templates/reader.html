@@ -3,7 +3,7 @@
 {% block content %}
 <div class="flex flex-wrap flex-col -mx-2 my-2 overflow-hidden md:-mx-1 lg:-mx-1 xl:-mx-2">
 
-    <div class="flex justify-center my-1.5 dark:text-gray-200">
+    <div class="flex justify-center my-1.5 text-gray-200 dark:text-black">
         <a href="{% url 'babel:detail' chapter.manga_id %}" class="pt-1 pr-4 text-xl">{{chapter.manga_name}}</a>
         <select class="rounded bg-gray-800 text-gray-200 px-2 py-2" autocomplete="off" onchange="document.location.href=this.value">
             {% for i in chapter.index %}
