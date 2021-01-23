@@ -38,6 +38,7 @@ def latest(request):
 
 def detail(request, id):
     mangas = gsNation.get_manga_by_id(id)
+    title = mangas["name"]
     for chapter in mangas['scans']:
         chapter['url'] = reverse("babel:read", args=[id,chapter['chapter']])
 
@@ -47,7 +48,7 @@ def detail(request, id):
 def read(request, mangas_id, chapter_id):
     chapter = gsNation.get_chapter(mangas_id, chapter_id)
     chapter['manga_name'] = gsNation.get_name_by_id(mangas_id)
-    
+    title = chapter['manga_name']
     max_chap = int(chapter['total_chapter'])
     
     if(chapter_id < max_chap):
