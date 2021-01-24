@@ -6,11 +6,11 @@
     <div class="flex justify-center my-1.5 text-gray-200 dark:text-black">
         <a href="{% url 'babel:detail' chapter.manga_id %}" class="pt-1 pr-4 text-xl">{{chapter.manga_name}}</a>
         <select class="rounded bg-gray-800 text-gray-200 px-2 py-2" autocomplete="off" onchange="document.location.href=this.value">
-            {% for i in chapter.index %}
-                {% if chapter.chapter == i %}
-                    <option selected value="{% url 'babel:read' chapter.manga_id i %}">Chapitre {{ forloop.counter }}</option>
+            {% for slug in chapter.slugs %}
+                {% if chapter.chapter == slug %}
+                    <option selected value="{% url 'babel:read' chapter.manga_id forloop.counter0 %}">Chapitre {{ slug }}</option>
                 {% else %}
-                    <option  value="{% url 'babel:read' chapter.manga_id i %}">Chapitre {{ forloop.counter }}</option>
+                    <option  value="{% url 'babel:read' chapter.manga_id forloop.counter0 %}">Chapitre {{ slug }}</option>
                 {% endif %}
             {% endfor %}
             
@@ -18,6 +18,7 @@
     </div>
 
     <div class="flex flex-row justify-center py-2">
+        {% if chapter.prev %}
         <a class="md:block md:fixed md:top-1/2 md:left-5 bg-gray-900 bg-opacity-90 rounded text-gray-300 mr-2" href="{{ chapter.prev }}">
             <div class="flex flex-row-reverse px-5 py-2">
                 <span class="pl-2">Precedent</span>
@@ -27,7 +28,8 @@
                 </svg>
             </div>
         </a>
-
+        {% endif %}
+        {% if chapter.next %}
         <a class="md:block md:fixed md:top-1/2 md:right-5 bg-gray-900 bg-opacity-90 rounded text-gray-300" href="{{ chapter.next }}">
             <div class="flex flex-row px-5 py-2">
                 <span class="pr-2">Suivant</span>
@@ -37,6 +39,7 @@
                 </svg>
             </div>
         </a>
+        {% endif %}
     </div>
     <div id="back-to-top" class="fixed bottom-4 right-10 w-10 h-10 bg-gray-900 bg-opacity-70 rounded-full flex justify-center pt-1 cursor-pointer">
         <svg class="transform rotate-90" enable-background="new 0 0 15 26" height="26px" id="Layer_1" version="1.1" viewBox="0 0 15 26" width="15px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

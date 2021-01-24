@@ -40,3 +40,18 @@ def get_name_by_id(id):
     data = req.json()['succes']['name']
 
     return data
+
+def get_list_slug_chapters(id):
+    req = requests.post("https://gs-nation.com/LGsNation/public/getMangaById", {"id":id})
+    data = req.json()['succes']
+
+    chapters = []
+    for chapter in data['scans']:
+        chapters.append(chapter['chapter'])
+
+    return chapters
+
+def get_count_chapters(id):
+    req = requests.post("https://gs-nation.com/LGsNation/public/getMangaById", {"id":id})
+    data = req.json()['succes']
+    return len(data['scans'])

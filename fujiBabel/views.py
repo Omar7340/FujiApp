@@ -49,16 +49,15 @@ def read(request, mangas_id, chapter_id):
     chapter = gsNation.get_chapter(mangas_id, chapter_id)
     chapter['manga_name'] = gsNation.get_name_by_id(mangas_id)
     title = chapter['manga_name']
-    max_chap = int(chapter['total_chapter'])
+    chapter['slugs'] = gsNation.get_list_slug_chapters(mangas_id)
+
+    min_chap = int(chapter['slugs'][0])
+    max_chap = gsNation.get_count_chapters(mangas_id)
     
-    if(chapter_id < max_chap):
+    if(chapter_id < max_chap - 1):
         chapter['next'] = reverse("babel:read", args=[mangas_id, chapter_id+1])
-    if(chapter_id > 1):
+    if(chapter_id > min_chap):
         chapter['prev'] = reverse("babel:read", args=[mangas_id, chapter_id-1])
     
-    chapter['index'] = []
-    for i in range(1,max_chap):
-        chapter['index'].append(str(i))
-
     menu = get_menu()
     return render(request, "reader.html", { 'title': title, 'chapter': chapter, 'menu':menu})
