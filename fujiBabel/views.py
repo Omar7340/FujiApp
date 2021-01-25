@@ -34,7 +34,18 @@ def index(request):
     return render(request, "index.html", { 'title': title, 'bibliotheque':bibliotheque, 'menu':menu })
 
 def latest(request):
-    return HttpResponse("not yet")
+    bibliotheque = gsNation.get_latest(7)
+
+    for days in bibliotheque:
+        for mangas in days["mangas"]:
+            try:
+                mangas['url'] = reverse("babel:read", args=[mangas["manga_id"],mangas['chapter']]) # de temps en temps les numeros de chap sont bugues (genre 7->8) :-)
+            except:
+                mangas['url'] = reverse("babel:detail", args=[mangas["manga_id"]]) # redirection vers page du manga si probleme
+    
+    menu = get_menu("latest")
+    
+    return render(request, "latest.html", { 'title': title, 'bibliotheque':bibliotheque, 'menu':menu })
 
 def detail(request, id):
     mangas = gsNation.get_manga_by_id(id)
