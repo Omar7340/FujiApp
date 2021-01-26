@@ -21,7 +21,7 @@ def formatDate(givenDate):
 # so if you give 7 as parameter
 # this function gives you the 7*3= 21 latest days
 def get_latest(nb_days_pack_by_3):
-    start = date.today()
+    start = date.today() + timedelta(days=2) # on ajoute des jours pour prendre en compte aujourdhui
     data = []
     for i in range(nb_days_pack_by_3):
         str_start = start.isoformat()

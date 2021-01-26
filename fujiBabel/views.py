@@ -65,7 +65,7 @@ def read(request, mangas_id, chapter_id):
     min_chap = int(chapter['slugs'][0])
     max_chap = gsNation.get_count_chapters(mangas_id)
     
-    if(chapter_id < max_chap - 1):
+    if(chapter_id <= max_chap - 1):
         chapter['next'] = reverse("babel:read", args=[mangas_id, chapter_id+1])
     if(chapter_id > min_chap):
         chapter['prev'] = reverse("babel:read", args=[mangas_id, chapter_id-1])
