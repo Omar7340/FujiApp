@@ -8,9 +8,9 @@
         <select class="rounded bg-gray-800 text-gray-200 px-2 py-2" autocomplete="off" onchange="document.location.href=this.value">
             {% for slug in chapter.slugs %}
                 {% if chapter.chapter == slug %}
-                    <option selected value="{% url 'babel:read' chapter.manga_id forloop.counter0 %}">Chapitre {{ slug }}</option>
+                    <option selected value="{% url 'babel:read' chapter.manga_id slug %}">Chapitre {{ slug }}</option>
                 {% else %}
-                    <option  value="{% url 'babel:read' chapter.manga_id forloop.counter0 %}">Chapitre {{ slug }}</option>
+                    <option  value="{% url 'babel:read' chapter.manga_id slug %}">Chapitre {{ slug }}</option>
                 {% endif %}
             {% endfor %}
             
